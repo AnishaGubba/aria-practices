@@ -21,26 +21,20 @@ div.rail-label.max {
 }
 
 div.aria-widget-slider .rail {
-  background-color: #eee;
-  border: 1px solid #888;
+  fill: gray;
+  stroke: black;
+  stroke-width: 2px;
   position: relative;
-  height: 4px;
+  height: 15px;
+  width: 295;
   float: left;
 }
 
-div.aria-widget-slider img[role="slider"] {
+div.aria-widget-slider svg[role="slider"] {
   position: absolute;
   padding: 0;
   margin: 0;
   top: -10px;
-}
-
-div.aria-widget-slider img[role="slider"].focus,
-div.aria-widget-slider img[role="slider"]:hover {
-  outline-color: rgb(140, 203, 242);
-  outline-style: solid;
-  outline-width: 2px;
-  outline-offset: 2px;
 }
 
 div.aria-widget-slider .rail.focus {

@@ -10,7 +10,7 @@
   <script src="../js/examples.js"></script>
   <script src="../js/highlight.pack.js"></script>
   <script src="../js/app.js"></script>
-
+ 
   <!-- example js and css files -->
   <link rel="stylesheet" href="css/multithumb-slider.css">
   <script src="js/multithumb-slider.js" type="text/javascript"></script>
@@ -49,62 +49,61 @@
           <div role="separator" id="ex_start_sep" aria-labelledby="ex_start_sep ex_label" aria-label="Start of"></div>
           <div id="ex1">
               <h3>Hotel Price Range</h3>
-              <div class="aria-widget-slider">
-                <div class="rail-label min">
-                  0
+              <div class="aria-widget-slider" >	
+				    <div> <svg width="390" height="25">
+						<text class="rail-label min" x="0" y="16" fill="black">0</text>
+						<rect class="rail" x="36" y="4" rx="4" width="293" />
+						<polygon id= "minPriceHotel"
+							     class="min thumb" 
+								 points="35,0 55,11 35,23"
+							     aria-valuemin="0"
+							     aria-valuenow="100"
+							     aria-valuetext="$100"
+								 aria-valuemax="400"
+								 aria-label="Hotel Minimum Price" 
+								 tabindex= "0"
+								 role="slider"/>
+						<polygon id= "maxPriceHotel"
+								 tabindex="0"
+								 class="max thumb"
+								 points= "330,0 310,11 330,23"
+								 aria-valuemin="0"
+								 aria-valuenow="400"
+								 aria-valuetext="$250"
+								 aria-valuemax="400"
+								 aria-label="Hotel Maximum Price"
+								 role = "slider"/>
+						<text class="rail-label max" x="345" y="16" fill="black" > 400 </text>
+					</svg> </div>
                 </div>
-                <div class="rail" style="width: 300px;">
-                  <img id="minPriceHotel"
-                    src="images/min-arrow.png"
-                    role="slider"
-                    tabindex="0"
-                    class="min thumb"
-                    aria-valuemin="0"
-                    aria-valuenow="100"
-                    aria-valuetext="$100"
-                    aria-valuemax="400"
-                    aria-label="Hotel Minimum Price"/>
-                  <img id="maxPriceHotel"
-                    src="images/max-arrow.png"
-                    role="slider"
-                    tabindex="0"
-                    class="max thumb"
-                    aria-valuemin="0"
-                    aria-valuenow="250"
-                    aria-valuetext="$250"
-                    aria-valuemax="400"
-                    aria-label="Hotel Maximum Price"/>
-                </div>
-                <div class="rail-label max">
-                  0
-                </div>
-              </div>
+
               <h3>Flight Price Range</h3>
               <div class="aria-widget-slider">
-              <div class="rail-label min">
-                0
-              </div>
-              <div class="rail" style="width: 300px;">
-                <img src="images/min-arrow.png"
-                    role="slider" tabindex="0"
-                    class="min thumb"
-                    aria-valuemin="0"
-                    aria-valuenow="100"
-                    aria-valuetext="$100"
-                    aria-valuemax="250"
-                    aria-label="Flight Minimum Price">
-                <img src="images/max-arrow.png"
-                  role="slider"
-                  tabindex="0"
-                  class="max thumb"
-                  aria-valuemin="0"
-                  aria-valuenow="250"
-                  aria-valuetext="$250"
-                  aria-valuemax="1000"
-                  aria-label="Flight Maximum Price">
-              </div>
-              <div class="rail-label max">
-                0
+				<div> <svg width="390" height="25">
+						<text class="rail-label min" x="0" y="16" fill="black">0</text>
+						<rect class="rail" x="36" y="4" rx="4" width="293" />
+						<polygon id= "minPriceHotel"
+							     class="min thumb" 
+								 points="35,0 55,11 35,23"
+							     aria-valuemin="0"
+							     aria-valuenow="100"
+							     aria-valuetext="$100"
+								 aria-valuemax="400"
+								 aria-label="Hotel Minimum Price"
+								 role= "slider" 
+								 tabindex= "0" />
+						<polygon id= "maxPriceHotel"
+								 role="slider"
+								 tabindex="0"
+								 class="max thumb"
+								 points= "330,0 310,11 330,23"
+								 aria-valuemin="0"
+								 aria-valuenow="250"
+								 aria-valuetext="$250"
+								 aria-valuemax="400"
+								 aria-label="Hotel Maximum Price"/>
+						<text class="rail-label max" x="345" y="16" fill="black" > 1000 </text>
+					</svg>
               </div>
               </div>
           </div>
