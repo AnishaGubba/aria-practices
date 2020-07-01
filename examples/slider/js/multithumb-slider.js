@@ -7,6 +7,8 @@
 *   Desc:   Slider widget that implements ARIA Authoring Practices
 */
 
+'use strict';
+
 // Create Slider that contains value, valuemin, valuemax, and valuenow
 var Slider = function (domNode)  {
 
@@ -48,7 +50,6 @@ Slider.prototype.init = function () {
     this.maxDomNode = this.domNode.nextElementSibling;
     this.railMax = parseInt((this.maxDomNode.getAttribute('aria-valuemax')));
   }
-
   else {
     this.railMax = parseInt((this.domNode.getAttribute('aria-valuemax')));
   }
@@ -210,7 +211,7 @@ Slider.prototype.handleMouseDown = function (event) {
 
   };
 
-    // bind a mousemove event handler to move pointer
+  // bind a mousemove event handler to move pointer
   document.addEventListener('mousemove', handleMouseMove);
 
   // bind a mouseup event handler to stop tracking mouse movements
@@ -239,7 +240,7 @@ Slider.prototype.handleMouseDown = function (event) {
 // Initialise Sliders on the page
 window.addEventListener('load', function () {
 
-  var sliders = document.querySelectorAll('[role=slider]');;
+  var sliders = document.querySelectorAll('[role=slider]');
 
   for (var i = 0; i < sliders.length; i++) {
     var s = new Slider(sliders[i]);
