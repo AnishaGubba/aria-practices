@@ -1,6 +1,6 @@
 /* CSS Document */
 
-div.aria-widget-slider {
+div.multithumb-slider {
   clear: both;
   padding-top: 0.5em;
   padding-bottom: 1em;
@@ -20,7 +20,7 @@ div.rail-label.max {
   text-align: left;
 }
 
-div.aria-widget-slider .rail {
+div.multithumb-slider .rail {
   background-color: #eee;
   border: 1px solid #888;
   position: relative;
@@ -28,21 +28,21 @@ div.aria-widget-slider .rail {
   float: left;
 }
 
-div.aria-widget-slider img[role="slider"] {
+div.multithumb-slider img[role="slider"] {
   position: absolute;
   padding: 0;
   margin: 0;
   top: -10px;
 }
 
-div.aria-widget-slider img[role="slider"].focus,
-div.aria-widget-slider img[role="slider"]:hover {
+div.multithumb-slider img[role="slider"].focus,
+div.multithumb-slider img[role="slider"]:hover {
   outline-color: rgb(140, 203, 242);
   outline-style: solid;
   outline-width: 2px;
   outline-offset: 2px;
 }
 
-div.aria-widget-slider .rail.focus {
+div.multithumb-slider .rail.focus {
   background-color: #aaa;
 }

@@ -10,14 +10,15 @@
 'use strict';
 
 // Create Slider that contains value, valuemin, valuemax, and valuenow
-var Slider = function (domNode)  {
+var MultithumbSlider = function (domNode)  {
 
   this.domNode = domNode;
-  this.railDomNode = domNode.parentNode;
+  this.railDomNode = domNode.querySelector('.rail');
 
-  this.labelDomNode = false;
-  this.minDomNode = false;
-  this.maxDomNode = false;
+  this.minLabelNode = domNode.querySelector('.rail-label.min');
+  this.maxLabelNode = domNode.querySelector('.rail-label.max');
+  this.minSliderNode = domNode.querySelector('.thumb.min');
+  this.maxSliderNode = domNode.querySelector('.thumb.max');
 
   this.valueNow = 50;
 
@@ -29,64 +30,31 @@ var Slider = function (domNode)  {
   this.thumbWidth  = 20;
   this.thumbHeight = 24;
 
-  this.keyCode = Object.freeze({
-    'left': 37,
-    'up': 38,
-    'right': 39,
-    'down': 40,
-    'pageUp': 33,
-    'pageDown': 34,
-    'end': 35,
-    'home': 36
-  });
+  
 };
 
 // Initialize slider
-Slider.prototype.init = function () {
+MultithumbSlider.prototype.init = function () {
 
-  if (this.domNode.previousElementSibling) {
-    this.minDomNode = this.domNode.previousElementSibling;
-    this.railMin = parseInt((this.minDomNode.getAttribute('aria-valuemin')));
-  }
-  else {
-    this.railMin = parseInt((this.domNode.getAttribute('aria-valuemin')));
-  }
-
-  if (this.domNode.nextElementSibling) {
-    this.maxDomNode = this.domNode.nextElementSibling;
-    this.railMax = parseInt((this.maxDomNode.getAttribute('aria-valuemax')));
-  }
-
-  else {
-    this.railMax = parseInt((this.domNode.getAttribute('aria-valuemax')));
-  }
-
-  this.valueNow = parseInt((this.domNode.getAttribute('aria-valuenow')));
-
-  this.railWidth = parseInt(this.railDomNode.style.width.slice(0, -2));
-
-  if (this.domNode.classList.contains('min')) {
-    this.labelDomNode = this.domNode.parentElement.previousElementSibling;
-  }
-
-  if (this.domNode.classList.contains('max')) {
-    this.labelDomNode = this.domNode.parentElement.nextElementSibling;
-  }
+    this.railMin = parseInt((this.minSliderNode.getAttribute('aria-valuemin')));
+    this.railMax = parseInt((this.maxSliderNode.getAttribute('aria-valuemax')));
+    this.valueNow = parseInt((this.domNode.getAttribute('aria-valuenow')));
+    this.railWidth = parseInt(this.railDomNode.style.width.slice(0, -2));
 
   if (this.domNode.tabIndex != 0) {
     this.domNode.tabIndex = 0;
   }
 
-  this.domNode.addEventListener('keydown',    this.handleKeyDown.bind(this));
+  this.domNode.addEventListener('keydown',   this.handleKeyDown.bind(this));
   this.domNode.addEventListener('mousedown', this.handleMouseDown.bind(this));
-  this.domNode.addEventListener('focus',      this.handleFocus.bind(this));
-  this.domNode.addEventListener('blur',       this.handleBlur.bind(this));
+  this.domNode.addEventListener('focus',     this.handleFocus.bind(this));
+  this.domNode.addEventListener('blur',      this.handleBlur.bind(this));
 
   this.moveSliderTo(this.valueNow);
 
 };
 
-Slider.prototype.moveSliderTo = function (value) {
+MultithumbSlider.prototype.moveSliderTo = function (value) {
   var valueMax = parseInt(this.domNode.getAttribute('aria-valuemax'));
   var valueMin = parseInt(this.domNode.getAttribute('aria-valuemin'));
 
@@ -104,17 +72,17 @@ Slider.prototype.moveSliderTo = function (value) {
   this.domNode.setAttribute('aria-valuenow', this.valueNow);
   this.domNode.setAttribute('aria-valuetext', this.dolValueNow);
 
-  if (this.minDomNode) {
-    this.minDomNode.setAttribute('aria-valuemax', this.valueNow);
+  if (this.minSliderNode) {
+    this.minSliderNode.setAttribute('aria-valuemax', this.valueNow);
   }
 
-  if (this.maxDomNode) {
-    this.maxDomNode.setAttribute('aria-valuemin', this.valueNow);
+  if (this.maxSliderNode) {
+    this.maxSliderNode.setAttribute('aria-valuemin', this.valueNow);
   }
 
   var pos = Math.round(((this.valueNow - this.railMin) * (this.railWidth - 2 * (this.thumbWidth - this.railBorderWidth))) / (this.railMax - this.railMin));
 
-  if (this.minDomNode) {
+  if (this.minSliderNode) {
     this.domNode.style.left = (pos + this.thumbWidth - this.railBorderWidth) + 'px';
   }
   else {
@@ -126,39 +94,39 @@ Slider.prototype.moveSliderTo = function (value) {
   }
 };
 
-Slider.prototype.handleKeyDown = function (event) {
+MultithumbSlider.prototype.handleKeyDown = function (event) {
 
   var flag = false;
 
-  switch (event.keyCode) {
-    case this.keyCode.left:
-    case this.keyCode.down:
+  switch (event.key) {
+    case 'Left':
+    case 'Down':
       this.moveSliderTo(this.valueNow - 1);
       flag = true;
       break;
 
-    case this.keyCode.right:
-    case this.keyCode.up:
+    case 'Right':
+    case 'Up':
       this.moveSliderTo(this.valueNow + 1);
       flag = true;
       break;
 
-    case this.keyCode.pageDown:
+    case 'PageDown':
       this.moveSliderTo(this.valueNow - 10);
       flag = true;
       break;
 
-    case this.keyCode.pageUp:
+    case 'PageUp':
       this.moveSliderTo(this.valueNow + 10);
       flag = true;
       break;
 
-    case this.keyCode.home:
+    case 'Home':
       this.moveSliderTo(this.railMin);
       flag = true;
       break;
 
-    case this.keyCode.end:
+    case 'End':
       this.moveSliderTo(this.railMax);
       flag = true;
       break;
@@ -174,17 +142,17 @@ Slider.prototype.handleKeyDown = function (event) {
 
 };
 
-Slider.prototype.handleFocus = function (event) {
+MultithumbSlider.prototype.handleFocus = function (event) {
   this.domNode.classList.add('focus');
   this.railDomNode.classList.add('focus');
 };
 
-Slider.prototype.handleBlur = function (event) {
+MultithumbSlider.prototype.handleBlur = function (event) {
   this.domNode.classList.remove('focus');
   this.railDomNode.classList.remove('focus');
 };
 
-Slider.prototype.handleMouseDown = function (event) {
+MultithumbSlider.prototype.handleMouseDown = function (event) {
 
   var self = this;
 
@@ -234,11 +202,11 @@ Slider.prototype.handleMouseDown = function (event) {
 // Initialise Sliders on the page
 window.addEventListener('load', function () {
 
-  var sliders = document.querySelectorAll('[role=slider]');
+  var multithumb-sliders = document.querySelectorAll('.multithumb-slider');
 
-  for (var i = 0; i < sliders.length; i++) {
-    var s = new Slider(sliders[i]);
-    s.init();
+  for (var i = 0; i < multithumb-sliders.length; i++) {
+    var ms = new MultithumbSlider(multithumb-sliders[i]);
+    ms.init();
   }
 
 });
