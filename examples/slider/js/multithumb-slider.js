@@ -202,10 +202,10 @@ MultithumbSlider.prototype.handleMouseDown = function (event) {
 // Initialise Sliders on the page
 window.addEventListener('load', function () {
 
-  var multithumb-sliders = document.querySelectorAll('.multithumb-slider');
+  var multithumbSliders = document.querySelectorAll('.multithumbSlider');
 
-  for (var i = 0; i < multithumb-sliders.length; i++) {
-    var ms = new MultithumbSlider(multithumb-sliders[i]);
+  for (var i = 0; i < multithumbSliders.length; i++) {
+    var ms = new MultithumbSlider(multithumbSliders[i]);
     ms.init();
   }
 
