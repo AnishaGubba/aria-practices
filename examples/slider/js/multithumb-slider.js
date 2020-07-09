@@ -77,6 +77,7 @@ MultithumbSlider.prototype.moveSliderTo = function (sliderNode, value) {
   if(sliderNode === this.minSliderNode){
     valueMin = this.getValueMin(this.minSliderNode);
     valueMax = this.getValue(this.maxSliderNode);
+    
   }
   else{
     valueMin = this.getValue(this.minSliderNode);
@@ -92,7 +93,6 @@ MultithumbSlider.prototype.moveSliderTo = function (sliderNode, value) {
   }
 
   var dollarValue = '$' + value;
-  console.log('[moveSliderTo] ' + sliderNode.classList + ' ' + value + ' ' + dollarValue + ' ' + valueMin + ' ' + valueMax);
   sliderNode.setAttribute('aria-valuenow', value);
   sliderNode.setAttribute('aria-valuetext', dollarValue);
 
@@ -101,10 +101,12 @@ MultithumbSlider.prototype.moveSliderTo = function (sliderNode, value) {
   if (sliderNode === this.minSliderNode) {
     sliderNode.style.left = (pos + this.thumbWidth - this.railBorderWidth) + 'px';
     this.minLabelNode.textContent = dollarValue;
+    this.maxSliderNode.setAttribute('aria-valuemin',value);
   }
   else {
     sliderNode.style.left = (pos - this.railBorderWidth) + 'px';
     this.maxLabelNode.textContent = dollarValue;
+    this.minSliderNode.setAttribute('aria-valuemax', value);
   }
 };
 
@@ -116,7 +118,6 @@ MultithumbSlider.prototype.handleKeyDown = function (event) {
   var value = this.getValue(sliderNode);
   var valueMin = this.getValueMin(sliderNode);
   var valueMax = this.getValueMax(sliderNode);
-  console.log('[handleKeyDown] ' + event.key + ' ' + sliderNode.classList + ' ' + value + ' '+ valueMin + ' ' + valueMax);
   
   switch (event.key) {
     case 'ArrowLeft':
@@ -172,17 +173,17 @@ MultithumbSlider.prototype.handleBlur = function (event) {
   this.railDomNode.classList.remove('focus');
 };
 
-MultithumbSlider.prototype.handleMouseDown = function (event) {
+MultithumbSlider.prototype.handleMouseDown = function (event) { 
 
+  var sliderNode = event.currentTarget;
   var self = this;
 
   var handleMouseMove = function (event) {
     
-    var sliderNode = event.currentTarget;
     var diffX = event.pageX - self.railDomNode.offsetLeft;
     var value = self.railMin + parseInt(((self.railMax - self.railMin) * diffX) / self.railWidth);
-    self.moveSliderTo(event.currentTarget, value);
-
+    self.moveSliderTo(sliderNode, value);
+    
     event.preventDefault();
     event.stopPropagation();
   };
