@@ -24,19 +24,18 @@ var MultithumbSlider = function (domNode)  {
   this.railMax = 100;
   this.railWidth = 0;
   this.railBorderWidth = 1;
-
-  this.thumbWidth  = 20;
+  this.thumbWidth = 0;
+  
   this.thumbHeight = 24;
-
   
 };
 
 // Initialize slider
 MultithumbSlider.prototype.init = function () {
 
-    this.railMin = parseInt((this.minSliderNode.getAttribute('aria-valuemin')));
-    this.railMax = parseInt((this.maxSliderNode.getAttribute('aria-valuemax')));
-    this.railWidth = parseInt(this.railDomNode.style.width.slice(0, -2));
+  this.railMin = parseInt((this.minSliderNode.getAttribute('aria-valuemin')));
+  this.railMax = parseInt((this.maxSliderNode.getAttribute('aria-valuemax')));
+  this.railWidth = parseInt(this.railDomNode.style.width.slice(0, -2));
 
   this.minSliderNode.addEventListener('keydown',   this.handleKeyDown.bind(this));
   this.minSliderNode.addEventListener('mousedown', this.handleMouseDown.bind(this));
@@ -53,8 +52,6 @@ MultithumbSlider.prototype.init = function () {
   this.moveSliderTo(this.maxSliderNode, this.getValue(this.maxSliderNode));
 
 };
-
-
 
 
 MultithumbSlider.prototype.getValue = function (sliderNode){
@@ -99,12 +96,13 @@ MultithumbSlider.prototype.moveSliderTo = function (sliderNode, value) {
   var pos = Math.round(((value - this.railMin) * (this.railWidth - 2 * (this.thumbWidth - this.railBorderWidth))) / (this.railMax - this.railMin));
 
   if (sliderNode === this.minSliderNode) {
+    this.thumbWidth = 0;
     sliderNode.style.left = (pos + this.thumbWidth - this.railBorderWidth) + 'px';
     this.minLabelNode.textContent = dollarValue;
     this.maxSliderNode.setAttribute('aria-valuemin',value);
   }
   else {
-    sliderNode.style.left = (pos - this.railBorderWidth) + 'px';
+    sliderNode.style.left = (pos - this.railBorderWidth-20) + 'px';
     this.maxLabelNode.textContent = dollarValue;
     this.minSliderNode.setAttribute('aria-valuemax', value);
   }
@@ -230,5 +228,4 @@ window.addEventListener('load', function () {
     var ms = new MultithumbSlider(multithumbSliders[i]);
     ms.init();
   }
-
 });
