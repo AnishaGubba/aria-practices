@@ -106,7 +106,7 @@ MultithumbSlider.prototype.moveSliderTo = function (sliderNode, value) {
     this.maxSliderNode.setAttribute('aria-valuemin',value);
   }
   else {
-    sliderNode.style.left = (pos - this.railBorderWidth-20) + 'px';
+    sliderNode.style.left = (pos - this.railBorderWidth+15) + 'px';
     this.maxLabelNode.textContent = dollarValue;
     this.minSliderNode.setAttribute('aria-valuemax', value);
   }
