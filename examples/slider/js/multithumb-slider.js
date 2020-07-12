@@ -66,12 +66,16 @@ MultithumbSlider.prototype.getValueMax = function (sliderNode){
   return parseInt(sliderNode.getAttribute('aria-valuemax'));
 };
 
+MultithumbSlider.prototype.isMinSlider = function(sliderNode) {
+  return this.minSliderNode === sliderNode; 
+}
+
 
 MultithumbSlider.prototype.moveSliderTo = function (sliderNode, value) {
   var valueMax;
   var valueMin;
   
-  if(sliderNode === this.minSliderNode){
+  if(this.isMinSlider(sliderNode)){
     valueMin = this.getValueMin(this.minSliderNode);
     valueMax = this.getValue(this.maxSliderNode);
     
@@ -95,7 +99,7 @@ MultithumbSlider.prototype.moveSliderTo = function (sliderNode, value) {
 
   var pos = Math.round(((value - this.railMin) * (this.railWidth - 2 * (this.thumbWidth - this.railBorderWidth))) / (this.railMax - this.railMin));
 
-  if (sliderNode === this.minSliderNode) {
+  if (this.isMinSlider(sliderNode)) {
     this.thumbWidth = 0;
     sliderNode.style.left = (pos + this.thumbWidth - this.railBorderWidth) + 'px';
     this.minLabelNode.textContent = dollarValue;
