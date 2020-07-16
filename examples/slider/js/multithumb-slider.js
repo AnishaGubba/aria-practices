@@ -24,10 +24,10 @@ var MultithumbSlider = function (domNode)  {
   this.railMax = 100;
   this.railWidth = 0;
   this.railBorderWidth = 1;
-  this.thumbWidth = 0;
-  
-  this.thumbHeight = 24;
-  
+
+  this.thumbWidth = this.minSliderNode.getBoundingClientRect().width;
+  this.thumbHeight = this.minSliderNode.getBoundingClientRect().height;
+
 };
 
 // Initialize slider
@@ -41,14 +41,14 @@ MultithumbSlider.prototype.init = function () {
   this.minSliderNode.addEventListener('mousedown', this.handleMouseDown.bind(this));
   this.minSliderNode.addEventListener('focus',     this.handleFocus.bind(this));
   this.minSliderNode.addEventListener('blur',      this.handleBlur.bind(this));
-  
+
   this.maxSliderNode.addEventListener('keydown',   this.handleKeyDown.bind(this));
   this.maxSliderNode.addEventListener('mousedown', this.handleMouseDown.bind(this));
   this.maxSliderNode.addEventListener('focus',     this.handleFocus.bind(this));
   this.maxSliderNode.addEventListener('blur',      this.handleBlur.bind(this));
 
   this.moveSliderTo(this.minSliderNode, this.getValue(this.minSliderNode));
-  
+
   this.moveSliderTo(this.maxSliderNode, this.getValue(this.maxSliderNode));
 
 };
@@ -67,18 +67,18 @@ MultithumbSlider.prototype.getValueMax = function (sliderNode){
 };
 
 MultithumbSlider.prototype.isMinSlider = function(sliderNode) {
-  return this.minSliderNode === sliderNode; 
+  return this.minSliderNode === sliderNode;
 }
 
 
 MultithumbSlider.prototype.moveSliderTo = function (sliderNode, value) {
   var valueMax;
   var valueMin;
-  
+
   if(this.isMinSlider(sliderNode)){
     valueMin = this.getValueMin(this.minSliderNode);
     valueMax = this.getValue(this.maxSliderNode);
-    
+
   }
   else{
     valueMin = this.getValue(this.minSliderNode);
@@ -97,16 +97,15 @@ MultithumbSlider.prototype.moveSliderTo = function (sliderNode, value) {
   sliderNode.setAttribute('aria-valuenow', value);
   sliderNode.setAttribute('aria-valuetext', dollarValue);
 
-  var pos = Math.round(((value - this.railMin) * (this.railWidth - 2 * (this.thumbWidth - this.railBorderWidth))) / (this.railMax - this.railMin));
+  var pos = Math.round(((value - this.railMin) * (this.railWidth - (2 * (this.thumbWidth - this.railBorderWidth)))) / (this.railMax - this.railMin));
 
   if (this.isMinSlider(sliderNode)) {
-    this.thumbWidth = 0;
-    sliderNode.style.left = (pos + this.thumbWidth - this.railBorderWidth) + 'px';
+    sliderNode.style.left = pos + 'px';
     this.minLabelNode.textContent = dollarValue;
     this.maxSliderNode.setAttribute('aria-valuemin',value);
   }
   else {
-    sliderNode.style.left = (pos - this.railBorderWidth+15) + 'px';
+    sliderNode.style.left = (this.thumbWidth + pos) + 'px';
     this.maxLabelNode.textContent = dollarValue;
     this.minSliderNode.setAttribute('aria-valuemax', value);
   }
@@ -120,7 +119,7 @@ MultithumbSlider.prototype.handleKeyDown = function (event) {
   var value = this.getValue(sliderNode);
   var valueMin = this.getValueMin(sliderNode);
   var valueMax = this.getValueMax(sliderNode);
-  
+
   switch (event.key) {
     case 'ArrowLeft':
     case 'ArrowDown':
@@ -175,17 +174,17 @@ MultithumbSlider.prototype.handleBlur = function (event) {
   this.railDomNode.classList.remove('focus');
 };
 
-MultithumbSlider.prototype.handleMouseDown = function (event) { 
+MultithumbSlider.prototype.handleMouseDown = function (event) {
 
   var sliderNode = event.currentTarget;
   var self = this;
 
   var handleMouseMove = function (event) {
-    
+
     var diffX = event.pageX - self.railDomNode.offsetLeft;
     var value = self.railMin + parseInt(((self.railMax - self.railMin) * diffX) / self.railWidth);
     self.moveSliderTo(sliderNode, value);
-    
+
     event.preventDefault();
     event.stopPropagation();
   };
