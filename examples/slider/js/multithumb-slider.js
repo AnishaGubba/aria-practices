@@ -19,7 +19,8 @@ var MultithumbSlider = function (domNode)  {
   this.maxLabelNode = domNode.querySelector('.rail-label.max');
   this.minSliderNode = domNode.querySelector('.thumb.min');
   this.maxSliderNode = domNode.querySelector('.thumb.max');
-
+  this.minSliderValueNode = this.minSliderNode.querySelector('.value');
+  this.maxSliderValueNode = this.maxSliderNode.querySelector('.value');
   this.railMin = 0;
   this.railMax = 100;
   this.railWidth = 0;
@@ -101,12 +102,12 @@ MultithumbSlider.prototype.moveSliderTo = function (sliderNode, value) {
 
   if (this.isMinSlider(sliderNode)) {
     sliderNode.style.left = pos + 'px';
-    this.minLabelNode.textContent = dollarValue;
+    this.minSliderValueNode.textContent = dollarValue;
     this.maxSliderNode.setAttribute('aria-valuemin',value);
   }
   else {
     sliderNode.style.left = (this.thumbWidth + pos) + 'px';
-    this.maxLabelNode.textContent = dollarValue;
+    this.maxSliderValueNode.textContent = dollarValue;
     this.minSliderNode.setAttribute('aria-valuemax', value);
   }
 };
