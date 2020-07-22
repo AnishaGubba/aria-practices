@@ -1,12 +1,48 @@
 /* CSS Document */
 
-div.multithumb-slider {
+.multithumb-slider button.dec10,
+.multithumb-slider button.dec,
+.multithumb-slider button.inc,
+.multithumb-slider button.inc10 {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+}
+
+.multithumb-slider button.change line {
+  stroke: black;
+  stroke-width: 2px;
+}
+
+.multithumb-slider .color-group button.change:focus,
+.multithumb-slider .color-slider:focus {
+  outline: none;
+}
+
+.multithumb-slider button.change:focus circle.background,
+.multithumb-slider button.change:hover circle.background {
+  stroke: #005a9c;
+}
+
+
+.multithumb-slider .hc-background {
+  fill: white;
+}
+
+.multithumb-slider button.change circle.background {
+  fill: #ddd;
+  stroke: transparent;
+  stroke-width: 2px;
+}
+
+.multithumb-slider {
   clear: both;
   padding-top: 0.5em;
   padding-bottom: 1em;
 }
 
-div.rail-label {
+.multithumb-slider .rail-label {
   padding-right: 0.5em;
   text-align: right;
   float: left;
@@ -15,12 +51,12 @@ div.rail-label {
   top: -0.5em;
 }
 
-div.rail-label.max {
+.multithumb-slider .rail-label.max {
   padding-left: 0.5em;
   text-align: left;
 }
 
-div.multithumb-slider .rail {
+.multithumb-slider .rail {
   background-color: #eee;
   border: 1px solid #888;
   position: relative;
@@ -28,7 +64,7 @@ div.multithumb-slider .rail {
   float: left;
 }
 
-div.multithumb-slider [role="slider"] {
+.multithumb-slider [role="slider"] {
   position: absolute;
   padding: 0;
   margin: 0;

@@ -50,14 +50,101 @@
           <div id="ex1">
               <h3>Hotel Price Range</h3>
               <div class="multithumb-slider">
-              <div><svg width ="65" height ="41">
-                   <circle class="decerease-by-one" cx="45" cy="30" r="10" stroke="black" stroke-width="1" fill="gray" />
-                   <text class="adding" x="42" y="34" fill="black">-</text>
-                   <circle class="decerease-by-ten" cx="15" cy="30" r="10" stroke="black" stroke-width="1" fill="gray" />
-                   <text class="adding" x="12" y="34" fill="black">-</text>
-                </svg>
+                <div class="button-group min">
+                  <button class="change dec10"
+                          aria-label="decrement red ten"
+                          tabindex="-1">
+                    <svg width="32" height="38">
+                      <circle class="hc-background"
+                              cx="14"
+                              cy="24"
+                              r="14"></circle>
+                      <circle class="background"
+                              cx="14"
+                              cy="24"
+                              r="12"></circle>
+                      <line x1="7"
+                            y1="24"
+                            x2="13"
+                            y2="24"></line>
+                      <line x1="15"
+                            y1="24"
+                            x2="21"
+                            y2="24"></line>
+                    </svg>
+                  </button>
+                  <button class="change dec"
+                          aria-label="decrement red one"
+                          tabindex="-1">
+                    <svg width="32" height="38">
+                      <circle class="hc-background"
+                              cx="14"
+                              cy="24"
+                              r="14"></circle>
+                      <circle class="background"
+                              cx="14"
+                              cy="24"
+                              r="12"></circle>
+                      <line x1="11"
+                            y1="24"
+                            x2="17"
+                            y2="24"></line>
+                    </svg>
+                  </button>
+                   <button class="change inc"
+                            aria-label="increment blue one"
+                            tabindex="-1">
+                      <svg width="32" height="38">
+                        <circle class="hc-background"
+                                cx="14"
+                                cy="24"
+                                r="14"></circle>
+                        <circle class="background"
+                                cx="14"
+                                cy="24"
+                                r="12"></circle>
+                        <line x1="10"
+                              y1="24"
+                              x2="18"
+                              y2="24"></line>
+                        <line x1="14"
+                              y1="20"
+                              x2="14"
+                              y2="28"></line>
+                      </svg>
+                    </button>
+                    <button class="change inc10"
+                            aria-label="increment blue ten"
+                            tabindex="-1">
+                      <svg width="32" height="38">
+                        <circle class="hc-background"
+                                cx="14"
+                                cy="24"
+                                r="14"></circle>
+                        <circle class="background"
+                                cx="14"
+                                cy="24"
+                                r="12"></circle>
+                        <line x1="5"
+                              y1="24"
+                              x2="13"
+                              y2="24"></line>
+                        <line x1="9"
+                              y1="20"
+                              x2="9"
+                              y2="28"></line>
+                        <line x1="15"
+                              y1="24"
+                              x2="23"
+                              y2="24"></line>
+                        <line x1="19"
+                              y1="20"
+                              x2="19"
+                              y2="28"></line>
+                      </svg>
+                    </button>
                 </div>
-                <div class="rail-label min">  
+                <div class="rail-label min">
                   $0
                 </div>
                 <div class="rail" style="width: 300px;">
@@ -91,12 +178,99 @@
                 <div class="rail-label max">
                   $400
                 </div>
-                <div><svg width ="65" height ="41">
-                   <circle class="incerease-by-one" cx="45" cy="30" r="10" stroke="black" stroke-width="1" fill="gray" />
-                   <text class="adding" x="40" y="35" fill="black">+</text>
-                   <circle class="incerease-by-ten" cx="15" cy="30" r="10" stroke="black" stroke-width="1" fill="gray" />
-                   <text class="adding" x="10" y="35" fill="black">+</text>
-                </svg>
+                <div class="button-group max">
+                  <button class="change dec10"
+                          aria-label="decrement red ten"
+                          tabindex="-1">
+                    <svg width="32" height="38">
+                      <circle class="hc-background"
+                              cx="14"
+                              cy="24"
+                              r="14"></circle>
+                      <circle class="background"
+                              cx="14"
+                              cy="24"
+                              r="12"></circle>
+                      <line x1="7"
+                            y1="24"
+                            x2="13"
+                            y2="24"></line>
+                      <line x1="15"
+                            y1="24"
+                            x2="21"
+                            y2="24"></line>
+                    </svg>
+                  </button>
+                  <button class="change dec"
+                          aria-label="decrement red one"
+                          tabindex="-1">
+                    <svg width="32" height="38">
+                      <circle class="hc-background"
+                              cx="14"
+                              cy="24"
+                              r="14"></circle>
+                      <circle class="background"
+                              cx="14"
+                              cy="24"
+                              r="12"></circle>
+                      <line x1="11"
+                            y1="24"
+                            x2="17"
+                            y2="24"></line>
+                    </svg>
+                  </button>
+                   <button class="change inc"
+                            aria-label="increment blue one"
+                            tabindex="-1">
+                      <svg width="32" height="38">
+                        <circle class="hc-background"
+                                cx="14"
+                                cy="24"
+                                r="14"></circle>
+                        <circle class="background"
+                                cx="14"
+                                cy="24"
+                                r="12"></circle>
+                        <line x1="10"
+                              y1="24"
+                              x2="18"
+                              y2="24"></line>
+                        <line x1="14"
+                              y1="20"
+                              x2="14"
+                              y2="28"></line>
+                      </svg>
+                    </button>
+                    <button class="change inc10"
+                            aria-label="increment blue ten"
+                            tabindex="-1">
+                      <svg width="32" height="38">
+                        <circle class="hc-background"
+                                cx="14"
+                                cy="24"
+                                r="14"></circle>
+                        <circle class="background"
+                                cx="14"
+                                cy="24"
+                                r="12"></circle>
+                        <line x1="5"
+                              y1="24"
+                              x2="13"
+                              y2="24"></line>
+                        <line x1="9"
+                              y1="20"
+                              x2="9"
+                              y2="28"></line>
+                        <line x1="15"
+                              y1="24"
+                              x2="23"
+                              y2="24"></line>
+                        <line x1="19"
+                              y1="20"
+                              x2="19"
+                              y2="28"></line>
+                      </svg>
+                    </button>
                 </div>
               </div>
               <h3>Flight Price Range</h3>
@@ -112,7 +286,7 @@
                 $0
               </div>
               <div class="rail" style="width: 300px;">
-              <div  role="slider" 
+              <div  role="slider"
                     tabindex="0"
                     class="min thumb"
                     aria-valuemin="0"
