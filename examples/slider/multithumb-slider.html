@@ -50,51 +50,81 @@
           <div id="ex1">
               <h3>Hotel Price Range</h3>
               <div class="multithumb-slider">
-                <div class="rail-label min">
-                  0
+              <div><svg width ="65" height ="41">
+                   <circle class="decerease-by-one" cx="45" cy="30" r="10" stroke="black" stroke-width="1" fill="gray" />
+                   <text class="adding" x="42" y="34" fill="black">-</text>
+                   <circle class="decerease-by-ten" cx="15" cy="30" r="10" stroke="black" stroke-width="1" fill="gray" />
+                   <text class="adding" x="12" y="34" fill="black">-</text>
+                </svg>
+                </div>
+                <div class="rail-label min">  
+                  $0
                 </div>
                 <div class="rail" style="width: 300px;">
-                  <img id="minPriceHotel"
-                    src="images/min-arrow.png"
-                    role="slider"
+                  <div  role="slider"
                     tabindex="0"
                     class="min thumb"
                     aria-valuemin="0"
                     aria-valuenow="100"
                     aria-valuetext="$100"
                     aria-valuemax="400"
-                    aria-label="Hotel Minimum Price"/>
-                  <img id="maxPriceHotel"
-                    src="images/max-arrow.png"
-                    role="slider"
-                    tabindex="0"
-                    class="max thumb"
-                    aria-valuemin="0"
-                    aria-valuenow="250"
-                    aria-valuetext="$250"
-                    aria-valuemax="400"
-                    aria-label="Hotel Maximum Price"/>
+                    aria-label="Hotel Minimum Price">
+                    <div class="value">0</div>
+                  <img id="minPriceHotel"
+                    src="images/min-arrow.png"
+                   />
+                  </div>
+                  <div  role="slider"
+                      tabindex="0"
+                      class="max thumb"
+                      aria-valuemin="0"
+                      aria-valuenow="250"
+                      aria-valuetext="$250"
+                      aria-valuemax="400"
+                      aria-label="Hotel Maximum Price">
+                    <div class="value">0</div>
+                    <img id="maxPriceHotel"
+                      src="images/max-arrow.png"
+                      />
+                  </div>
                 </div>
                 <div class="rail-label max">
-                  0
+                  $400
+                </div>
+                <div><svg width ="65" height ="41">
+                   <circle class="incerease-by-one" cx="45" cy="30" r="10" stroke="black" stroke-width="1" fill="gray" />
+                   <text class="adding" x="40" y="35" fill="black">+</text>
+                   <circle class="incerease-by-ten" cx="15" cy="30" r="10" stroke="black" stroke-width="1" fill="gray" />
+                   <text class="adding" x="10" y="35" fill="black">+</text>
+                </svg>
                 </div>
               </div>
               <h3>Flight Price Range</h3>
               <div class="multithumb-slider">
+              <div><svg width ="65" height ="41">
+                   <circle class="decerease-by-one" cx="45" cy="30" r="10" stroke="black" stroke-width="1" fill="gray" />
+                   <text class="adding" x="42" y="34" fill="black">-</text>
+                   <circle class="decerease-by-ten" cx="15" cy="30" r="10" stroke="black" stroke-width="1" fill="gray" />
+                   <text class="adding" x="12" y="34" fill="black">-</text>
+                </svg>
+                </div>
               <div class="rail-label min">
-                0
+                $0
               </div>
               <div class="rail" style="width: 300px;">
-                <img src="images/min-arrow.png"
-                    role="slider" tabindex="0"
+              <div  role="slider" 
+                    tabindex="0"
                     class="min thumb"
                     aria-valuemin="0"
                     aria-valuenow="100"
                     aria-valuetext="$100"
                     aria-valuemax="250"
                     aria-label="Flight Minimum Price">
-                <img src="images/max-arrow.png"
-                  role="slider"
+               <div class="value">0</div>
+                <img id="minPriceFlight"
+                     src="images/min-arrow.png" />
+              </div>
+              <div role="slider"
                   tabindex="0"
                   class="max thumb"
                   aria-valuemin="0"
@@ -102,10 +132,21 @@
                   aria-valuetext="$250"
                   aria-valuemax="1000"
                   aria-label="Flight Maximum Price">
+                  <div class="value">0</div>
+                    <img id="maxFlightPrice"
+                         src="images/max-arrow.png" />
+               </div>
               </div>
               <div class="rail-label max">
-                0
+                $1000
               </div>
+              <div><svg width ="65" height ="41">
+                   <circle class="incerease-by-one" cx="45" cy="30" r="10" stroke="black" stroke-width="1" fill="gray" />
+                   <text class="adding" x="40" y="35" fill="black">+</text>
+                   <circle class="incerease-by-ten" cx="15" cy="30" r="10" stroke="black" stroke-width="1" fill="gray" />
+                   <text class="adding" x="10" y="35" fill="black">+</text>
+                </svg>
+                </div>
               </div>
           </div>
           <div role="separator" id="ex_end_sep" aria-labelledby="ex_end_sep ex_label" aria-label="End of"></div>

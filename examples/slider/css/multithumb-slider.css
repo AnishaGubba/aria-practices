@@ -28,15 +28,15 @@ div.multithumb-slider .rail {
   float: left;
 }
 
-div.multithumb-slider img[role="slider"] {
+div.multithumb-slider [role="slider"] {
   position: absolute;
   padding: 0;
   margin: 0;
-  top: -10px;
+  top: -35px;
 }
 
-div.multithumb-slider img[role="slider"].focus,
-div.multithumb-slider img[role="slider"]:hover {
+div.multithumb-slider [role="slider"].focus,
+div.multithumb-slider [role="slider"]:hover {
   outline-color: rgb(140, 203, 242);
   outline-style: solid;
   outline-width: 2px;
