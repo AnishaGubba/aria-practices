@@ -51,6 +51,10 @@ MultithumbSlider.prototype.init = function () {
   this.moveSliderTo(this.minSliderNode, this.getValue(this.minSliderNode));
 
   this.moveSliderTo(this.maxSliderNode, this.getValue(this.maxSliderNode));
+  var buttons = this.domNode.querySelectorAll('.change');
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', this.handleButton.bind(this));
+  }
 
 };
 
@@ -209,6 +213,30 @@ MultithumbSlider.prototype.handleMouseDown = function (event) {
   // Set focus to the clicked handle
   this.domNode.focus();
 
+};
+
+MultithumbSlider.prototype.handleButton = function (event){
+  var tgt = event.currentTarget;
+  console.log('[handleButton] '+ tgt.classList + ' ' + tgt.parentNode.classList);
+  var slider = this.minSliderNode;
+  if(tgt.parentNode.classList.contains('max')){
+    slider = this.maxSliderNode;
+  }
+  
+  var value = this.getValue(slider);
+  
+  if(tgt.classList.contains('dec10')){
+    this.moveSliderTo(slider,value - 10 );
+  }
+  else if (tgt.classList.contains('dec')){
+    this.moveSliderTo(slider, value-1);
+  }
+  else if(tgt.classList.contains('inc10')){
+    this.moveSliderTo(slider, value+10);
+  }
+  else if(tgt.classList.contains('inc')){
+    this.moveSliderTo(slider, value+1);
+  }
 };
 
 // handleMouseMove has the same functionality as we need for handleMouseClick on the rail
