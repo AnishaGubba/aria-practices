@@ -1,5 +1,15 @@
 /* CSS Document */
 
+.multithumb-slider {
+  display: grid;
+  grid-template-columns: 32px 32px 450px 32px 32px;
+}
+
+.multithumb-slider .slider-group {
+  position: relative;
+  top: 40px;
+}
+
 .multithumb-slider button.dec10,
 .multithumb-slider button.dec,
 .multithumb-slider button.inc,

@@ -219,12 +219,12 @@ MultithumbSlider.prototype.handleButton = function (event){
   var tgt = event.currentTarget;
   console.log('[handleButton] '+ tgt.classList + ' ' + tgt.parentNode.classList);
   var slider = this.minSliderNode;
-  if(tgt.parentNode.classList.contains('max')){
+  if(tgt.classList.contains('max')){
     slider = this.maxSliderNode;
   }
-  
+
   var value = this.getValue(slider);
-  
+
   if(tgt.classList.contains('dec10')){
     this.moveSliderTo(slider,value - 10 );
   }
