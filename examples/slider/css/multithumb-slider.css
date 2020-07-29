@@ -2,7 +2,7 @@
 
 .multithumb-slider {
   display: grid;
-  grid-template-columns: 32px 32px 450px 32px 32px;
+  grid-template-columns: 32px 32px 500px 32px 32px;
 }
 
 .multithumb-slider .slider-group {
@@ -64,6 +64,7 @@
 .multithumb-slider .rail-label.max {
   padding-left: 0.5em;
   text-align: left;
+  
 }
 
 .multithumb-slider .rail {

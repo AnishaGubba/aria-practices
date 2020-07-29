@@ -279,8 +279,148 @@
               </div>
               <h3>Flight Price Range</h3>
               <div class="multithumb-slider">
-              <div class="button-group min">
-                  <button class="change dec10"
+              <button class="change min inc"
+                        aria-label="increment flight min price one"
+                        tabindex="-1">
+                  <svg width="32" height="38">
+                    <circle class="hc-background"
+                            cx="14"
+                            cy="24"
+                            r="14"></circle>
+                    <circle class="background"
+                            cx="14"
+                            cy="24"
+                            r="12"></circle>
+                    <line x1="10"
+                          y1="24"
+                          x2="18"
+                          y2="24"></line>
+                    <line x1="14"
+                          y1="20"
+                          x2="14"
+                          y2="28"></line>
+                  </svg>
+                </button>
+                <button class="change min inc10"
+                        aria-label="increment flight min price ten"
+                        tabindex="-1">
+                  <svg width="32" height="38">
+                    <circle class="hc-background"
+                            cx="14"
+                            cy="24"
+                            r="14"></circle>
+                    <circle class="background"
+                            cx="14"
+                            cy="24"
+                            r="12"></circle>
+                    <line x1="5"
+                          y1="24"
+                          x2="13"
+                          y2="24"></line>
+                    <line x1="9"
+                          y1="20"
+                          x2="9"
+                          y2="28"></line>
+                    <line x1="15"
+                          y1="24"
+                          x2="23"
+                          y2="24"></line>
+                    <line x1="19"
+                          y1="20"
+                          x2="19"
+                          y2="28"></line>
+                  </svg>
+                </button>
+                <div class="slider-group">
+                  <div class="rail-label min">
+                    $0
+                  </div>
+                  <div class="rail" style="width: 300px;">
+                    <div  role="slider"
+                      tabindex="0"
+                      class="min thumb"
+                      aria-valuemin="0"
+                      aria-valuenow="100"
+                      aria-valuetext="$100"
+                      aria-valuemax="1000"
+                      aria-label="Flight Minimum Price">
+                      <div class="value">0</div>
+                    <img id="minPriceFlight"
+                      src="images/min-arrow.png"
+                     />
+                    </div>
+                    <div  role="slider"
+                        tabindex="0"
+                        class="max thumb"
+                        aria-valuemin="0"
+                        aria-valuenow="250"
+                        aria-valuetext="$250"
+                        aria-valuemax="1000"
+                        aria-label="Flight Maximum Price">
+                      <div class="value">0</div>
+                      <img id="maxPriceFlight"
+                        src="images/max-arrow.png"
+                        />
+                    </div>
+                  </div>
+                  <div class="rail-label max">
+                    $1000
+                  </div>
+                </div>
+                <button class="change max inc"
+                        aria-label="increment flight max price one"
+                        tabindex="-1">
+                  <svg width="32" height="38">
+                    <circle class="hc-background"
+                            cx="14"
+                            cy="24"
+                            r="14"></circle>
+                    <circle class="background"
+                            cx="14"
+                            cy="24"
+                            r="12"></circle>
+                    <line x1="10"
+                          y1="24"
+                          x2="18"
+                          y2="24"></line>
+                    <line x1="14"
+                          y1="20"
+                          x2="14"
+                          y2="28"></line>
+                  </svg>
+                 </button>
+                 <button class="change max inc10"
+                         aria-label="increment flight max price ten"
+                         tabindex="-1">
+                      <svg width="32" height="38">
+                        <circle class="hc-background"
+                                cx="14"
+                                cy="24"
+                                r="14"></circle>
+                        <circle class="background"
+                                cx="14"
+                                cy="24"
+                                r="12"></circle>
+                        <line x1="5"
+                              y1="24"
+                              x2="13"
+                              y2="24"></line>
+                        <line x1="9"
+                              y1="20"
+                              x2="9"
+                              y2="28"></line>
+                        <line x1="15"
+                              y1="24"
+                              x2="23"
+                              y2="24"></line>
+                        <line x1="19"
+                              y1="20"
+                              x2="19"
+                              y2="28"></line>
+                      </svg>
+                  </button>
+
+                  <button class="change min dec10"
                           aria-label="decrement flight min price ten"
                           tabindex="-1">
                     <svg width="32" height="38">
@@ -302,7 +442,8 @@
                             y2="24"></line>
                     </svg>
                   </button>
-                  <button class="change dec"
+
+                  <button class="change min dec"
                           aria-label="decrement flight min price one"
                           tabindex="-1">
                     <svg width="32" height="38">
@@ -320,93 +461,29 @@
                             y2="24"></line>
                     </svg>
                   </button>
-                   <button class="change inc"
-                            aria-label="increment flight min price one"
-                            tabindex="-1">
-                      <svg width="32" height="38">
-                        <circle class="hc-background"
-                                cx="14"
-                                cy="24"
-                                r="14"></circle>
-                        <circle class="background"
-                                cx="14"
-                                cy="24"
-                                r="12"></circle>
-                        <line x1="10"
-                              y1="24"
-                              x2="18"
-                              y2="24"></line>
-                        <line x1="14"
-                              y1="20"
-                              x2="14"
-                              y2="28"></line>
-                      </svg>
-                    </button>
-                    <button class="change inc10"
-                            aria-label="increment flight min price ten"
-                            tabindex="-1">
-                      <svg width="32" height="38">
-                        <circle class="hc-background"
-                                cx="14"
-                                cy="24"
-                                r="14"></circle>
-                        <circle class="background"
-                                cx="14"
-                                cy="24"
-                                r="12"></circle>
-                        <line x1="5"
-                              y1="24"
-                              x2="13"
-                              y2="24"></line>
-                        <line x1="9"
-                              y1="20"
-                              x2="9"
-                              y2="28"></line>
-                        <line x1="15"
-                              y1="24"
-                              x2="23"
-                              y2="24"></line>
-                        <line x1="19"
-                              y1="20"
-                              x2="19"
-                              y2="28"></line>
-                      </svg>
-                    </button>
-                </div>
-              <div class="rail-label min">
-                $0
-              </div>
-              <div class="rail" style="width: 300px;">
-              <div  role="slider"
-                    tabindex="0"
-                    class="min thumb"
-                    aria-valuemin="0"
-                    aria-valuenow="100"
-                    aria-valuetext="$100"
-                    aria-valuemax="250"
-                    aria-label="Flight Minimum Price">
-               <div class="value">0</div>
-                <img id="minPriceFlight"
-                     src="images/min-arrow.png" />
-              </div>
-              <div role="slider"
-                  tabindex="0"
-                  class="max thumb"
-                  aria-valuemin="0"
-                  aria-valuenow="250"
-                  aria-valuetext="$250"
-                  aria-valuemax="1000"
-                  aria-label="Flight Maximum Price">
-                  <div class="value">0</div>
-                    <img id="maxFlightPrice"
-                         src="images/max-arrow.png" />
-               </div>
-              </div>
-              <div class="rail-label max">
-                $1000
-              </div>
-              <div class="button-group max">
-                  <button class="change dec10"
+
+                  <div class="slider-group">
+                  </div>
+
+                  <button class="change max dec"
+                          aria-label="decrement flight max price one"
+                          tabindex="-1">
+                    <svg width="32" height="38">
+                      <circle class="hc-background"
+                              cx="14"
+                              cy="24"
+                              r="14"></circle>
+                      <circle class="background"
+                              cx="14"
+                              cy="24"
+                              r="12"></circle>
+                      <line x1="11"
+                            y1="24"
+                            x2="17"
+                            y2="24"></line>
+                    </svg>
+                  </button>
+                  <button class="change max dec10"
                           aria-label="decrement flight max price ten"
                           tabindex="-1">
                     <svg width="32" height="38">
@@ -428,76 +505,6 @@
                             y2="24"></line>
                     </svg>
                   </button>
-                  <button class="change dec"
-                          aria-label="decrement flight max price one"
-                          tabindex="-1">
-                    <svg width="32" height="38">
-                      <circle class="hc-background"
-                              cx="14"
-                              cy="24"
-                              r="14"></circle>
-                      <circle class="background"
-                              cx="14"
-                              cy="24"
-                              r="12"></circle>
-                      <line x1="11"
-                            y1="24"
-                            x2="17"
-                            y2="24"></line>
-                    </svg>
-                  </button>
-                   <button class="change inc"
-                            aria-label="increment flight max price one"
-                            tabindex="-1">
-                      <svg width="32" height="38">
-                        <circle class="hc-background"
-                                cx="14"
-                                cy="24"
-                                r="14"></circle>
-                        <circle class="background"
-                                cx="14"
-                                cy="24"
-                                r="12"></circle>
-                        <line x1="10"
-                              y1="24"
-                              x2="18"
-                              y2="24"></line>
-                        <line x1="14"
-                              y1="20"
-                              x2="14"
-                              y2="28"></line>
-                      </svg>
-                    </button>
-                    <button class="change inc10"
-                            aria-label="increment flight max price ten"
-                            tabindex="-1">
-                      <svg width="32" height="38">
-                        <circle class="hc-background"
-                                cx="14"
-                                cy="24"
-                                r="14"></circle>
-                        <circle class="background"
-                                cx="14"
-                                cy="24"
-                                r="12"></circle>
-                        <line x1="5"
-                              y1="24"
-                              x2="13"
-                              y2="24"></line>
-                        <line x1="9"
-                              y1="20"
-                              x2="9"
-                              y2="28"></line>
-                        <line x1="15"
-                              y1="24"
-                              x2="23"
-                              y2="24"></line>
-                        <line x1="19"
-                              y1="20"
-                              x2="19"
-                              y2="28"></line>
-                      </svg>
-                    </button>
                 </div>
             </div>
           </div>
