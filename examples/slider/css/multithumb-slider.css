@@ -68,10 +68,7 @@
 }
 
 .multithumb-slider .rail {
-  background-color: #eee;
-  border: 1px solid #888;
   position: relative;
-  height: 4px;
   float: left;
 }
 
@@ -93,3 +90,4 @@ div.multithumb-slider [role="slider"]:hover {
 div.multithumb-slider .rail.focus {
   background-color: #aaa;
 }
+

@@ -188,6 +188,7 @@ MultithumbSlider.prototype.handleMouseDown = function (event) {
 
     var diffX = event.pageX - self.railDomNode.offsetLeft;
     var value = self.railMin + parseInt(((self.railMax - self.railMin) * diffX) / self.railWidth);
+	
     self.moveSliderTo(sliderNode, value);
 
     event.preventDefault();
