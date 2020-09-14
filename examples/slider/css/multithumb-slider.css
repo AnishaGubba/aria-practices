@@ -2,48 +2,23 @@
 
 .multithumb-slider {
   display: grid;
-  grid-template-columns: 32px 32px 500px 32px 32px;
+  grid-template-columns: 30px 500px 30px;
 }
 
 .multithumb-slider .slider-group {
   position: relative;
   top: 40px;
 }
-
-.multithumb-slider button.dec10,
-.multithumb-slider button.dec,
-.multithumb-slider button.inc,
-.multithumb-slider button.inc10 {
-  padding: 0;
-  margin: 0;
-  border: none;
-  background: none;
-}
-
-.multithumb-slider button.change line {
-  stroke: black;
-  stroke-width: 2px;
-}
+	
 
 .multithumb-slider .color-group button.change:focus,
 .multithumb-slider .color-slider:focus {
   outline: none;
 }
 
-.multithumb-slider button.change:focus circle.background,
-.multithumb-slider button.change:hover circle.background {
-  stroke: #005a9c;
-}
-
 
 .multithumb-slider .hc-background {
   fill: white;
-}
-
-.multithumb-slider button.change circle.background {
-  fill: #ddd;
-  stroke: transparent;
-  stroke-width: 2px;
 }
 
 .multithumb-slider {
@@ -77,6 +52,7 @@
   padding: 0;
   margin: 0;
   top: -35px;
+  
 }
 
 div.multithumb-slider [role="slider"].focus,
@@ -85,9 +61,6 @@ div.multithumb-slider [role="slider"]:hover {
   outline-style: solid;
   outline-width: 2px;
   outline-offset: 2px;
-}
-
-div.multithumb-slider .rail.focus {
-  background-color: #aaa;
+  
 }
 
